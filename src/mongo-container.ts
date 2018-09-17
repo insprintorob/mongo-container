@@ -1,4 +1,4 @@
-import { MongoClient, Db, Cursor } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 
 export class MongoContainer {
     public mongoClient : MongoClient
