@@ -1,0 +1,30 @@
+{
+  "name": "mongo-container",
+  "version": "0.0.1",
+  "description": "Simple to use container for MongoDB with support for async await using Promises",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -p ./ -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insprintorob/mongo-container.git"
+  },
+  "keywords": [
+    "mongodb",
+    "async",
+    "promises",
+    "await"
+  ],
+  "author": "Robbie Cahill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/insprintorob/mongo-container/issues"
+  },
+  "homepage": "https://github.com/insprintorob/mongo-container#readme",
+  "dependencies": {
+    "@types/mongodb": "^3.1.7",
+    "mongodb": "^3.1.6"
+  }
+}
