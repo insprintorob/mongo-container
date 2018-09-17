@@ -53,14 +53,14 @@ export class Repository {
     }
 }
 
-export async function createRepository(
+export function createRepository(
     mongoContainer : MongoContainer,
     collectionName : string
-) : Promise<Repository> {
+) : Repository {
     const repository = new Repository(
         mongoContainer,
         collectionName
     );
 
-    return Promise.resolve(repository);
+    return repository;
 }

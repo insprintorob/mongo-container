@@ -14,23 +14,21 @@ const mongoContainer = new MongoContainer(
     }
 );
 
-(async function() {
-    const myRepository = await createRepository(
-        mongoContainer,
-        'my-collection'
-    );
+const myRepository = createRepository(
+    mongoContainer,
+    'my-collection'
+);
 
-    let item = await myRepository.addOne({
-        test : 'test'
-    });
+let item = await myRepository.addOne({
+    test : 'test'
+});
 
-    let foundItem = await myRepository.findOne({
-        test : 'test'
-    });
+let foundItem = await myRepository.findOne({
+    test : 'test'
+});
 
-    myRepository.deleteOne({
-        test : 'test'
-    });
-})();
+myRepository.deleteOne({
+    test : 'test'
+});
 
 ```
