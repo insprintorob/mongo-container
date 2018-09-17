@@ -1,4 +1,4 @@
-import MongoContainer from '.';
+import MongoContainer from 'mongo-container';
 
 let mongoContainer = new MongoContainer(
     {
