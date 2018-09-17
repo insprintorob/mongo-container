@@ -1,6 +1,3 @@
-import { MongoContainer } from './src/mongo-container';
-import { createRepository } from './src/repository';
-
-
-export { createRepository as createRepository };
-export default MongoContainer;
+export { MongoContainer } from './src/mongo-container';
+export { Repository } from './src/repository';
+export { createRepository } from './src/repository';
