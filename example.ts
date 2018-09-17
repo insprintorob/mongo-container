@@ -9,4 +9,7 @@ const mongoContainer = new MongoContainer(
     }
 );
 
-const db = mongoContainer.getDb(); // Will return the db object so you can call db.insert() and the other mongodb functions
+(async function() {
+    const db = await mongoContainer.getDb(); // Will return the db object so you can call db.insert() and the other mongodb functions
+    
+})();
