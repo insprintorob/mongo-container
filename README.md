@@ -5,7 +5,7 @@ Usage:
 ```
 import MongoContainer from 'mongo-container';
 
-let mongoContainer = new MongoContainer(
+const mongoContainer = new MongoContainer(
     {
         database : {
             uri : 'mongodb://127.0.0.1:27017',
@@ -13,6 +13,8 @@ let mongoContainer = new MongoContainer(
         }
     }
 );
+
+const db = mongoContainer.getDb(); // Will return the db object so you can call db.insert() and the other mongodb functions
 ```
 
 See example.ts for the full example which will work with both TypeScript and ES2018 JavaScript
