@@ -34,5 +34,3 @@ const mongoContainer = new MongoContainer(
 })();
 
 ```
-
-See example.ts for the full example which will work with both TypeScript and ES2018 JavaScript
