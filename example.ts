@@ -1,4 +1,4 @@
-import MongoContainer from 'mongo-container';
+import { MongoContainer, createRepository } from 'mongo-container';
 
 const mongoContainer = new MongoContainer(
     {
@@ -10,6 +10,20 @@ const mongoContainer = new MongoContainer(
 );
 
 (async function() {
-    const db = await mongoContainer.getDb(); // Will return the db object so you can call db.insert() and the other mongodb functions
-    
+    const myRepository = await createRepository(
+        mongoContainer,
+        'my-collection'
+    );
+
+    let item = await myRepository.addOne({
+        test : 'test'
+    });
+
+    let foundItem = await myRepository.findOne({
+        test : 'test'
+    });
+
+    myRepository.deleteOne({
+        test : 'test'
+    });
 })();

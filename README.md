@@ -3,7 +3,7 @@ A simple container for MongoDB with support for async await using Promises
 Usage:
 
 ```
-import MongoContainer from 'mongo-container';
+import { MongoContainer, createRepository } from 'mongo-container';
 
 const mongoContainer = new MongoContainer(
     {
@@ -14,7 +14,25 @@ const mongoContainer = new MongoContainer(
     }
 );
 
-const db = mongoContainer.getDb(); // Will return the db object so you can call db.insert() and the other mongodb functions
+(async function() {
+    const myRepository = await createRepository(
+        mongoContainer,
+        'my-collection'
+    );
+
+    let item = await myRepository.addOne({
+        test : 'test'
+    });
+
+    let foundItem = await myRepository.findOne({
+        test : 'test'
+    });
+
+    myRepository.deleteOne({
+        test : 'test'
+    });
+})();
+
 ```
 
 See example.ts for the full example which will work with both TypeScript and ES2018 JavaScript
