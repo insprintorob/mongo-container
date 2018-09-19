@@ -1,6 +1,6 @@
 {
   "name": "mongo-container",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Simple to use container for MongoDB with support for async await using Promises",
   "main": "index.js",
   "scripts": {

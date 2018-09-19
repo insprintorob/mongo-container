@@ -43,9 +43,9 @@ class Repository {
     }
 }
 exports.Repository = Repository;
-async function createRepository(mongoContainer, collectionName) {
+function createRepository(mongoContainer, collectionName) {
     const repository = new Repository(mongoContainer, collectionName);
-    return Promise.resolve(repository);
+    return repository;
 }
 exports.createRepository = createRepository;
 //# sourceMappingURL=repository.js.map
