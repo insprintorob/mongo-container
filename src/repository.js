@@ -21,25 +21,15 @@ class Repository {
         let result = collection.findOne(args);
         return Promise.resolve(result);
     }
-    async updateOne(query, document, options) {
+    async deleteOne(args) {
         let collection = await this.getCollection();
-        collection.updateOne(query, { $set: document }, options);
-        return Promise.resolve();
+        collection.deleteOne(args);
     }
-    async upsert(query, document) {
-        await this.updateOne(query, document, {
-            upsert: true
-        });
-    }
-    async deleteOne(query) {
-        let collection = await this.getCollection();
-        collection.deleteOne(query);
-    }
-    async find(query = null) {
+    async find(args = null) {
         let result = [];
         let collection = await this.getCollection();
-        if (query !== null) {
-            result = collection.find(query).toArray();
+        if (args !== null) {
+            result = collection.find(args).toArray();
         }
         else {
             result = collection.find(); // will return everything

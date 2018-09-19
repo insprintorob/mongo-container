@@ -22,44 +22,23 @@ export class Repository {
         return Promise.resolve(this.collection);
     }
 
-    async findOne(args : any) : Promise<void> {
+    async findOne(args : any) : Promise<any> {
         let collection = await this.getCollection();
         let result = collection.findOne(args);
         return Promise.resolve(result);
     }
 
-    async updateOne(query : any, document : any, options : any) : Promise<void> {
+    async deleteOne(args : any) : Promise<void> {
         let collection = await this.getCollection();
-        collection.updateOne(
-            query,
-            { $set : document },
-            options
-        );
-
-        return Promise.resolve();
+        collection.deleteOne(args);
     }
 
-    async upsert(query : any, document : any) : Promise<void> {
-        await this.updateOne(
-          query,
-          document,
-          {
-            upsert : true
-          }
-        )
-    }
-
-    async deleteOne(query : any) : Promise<void> {
-        let collection = await this.getCollection();
-        collection.deleteOne(query);
-    }
-
-    async find(query : any = null) : Promise<Array<any>> {
+    async find(args : any = null) : Promise<Array<any>> {
         let result : any = [];
         let collection = await this.getCollection();
 
-        if (query !== null) {
-            result = collection.find(query).toArray();
+        if (args !== null) {
+            result = collection.find(args).toArray();
         } else {
             result = collection.find(); // will return everything
         }
