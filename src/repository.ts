@@ -33,6 +33,11 @@ export class Repository {
         collection.deleteOne(args);
     }
 
+    async deleteAll() : Promise<void> {
+        let collection = await this.getCollection();
+        collection.remove({});
+    }
+
     async find(args : any = null) : Promise<Array<any>> {
         let result : any = [];
         let collection = await this.getCollection();
