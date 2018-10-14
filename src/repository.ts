@@ -13,7 +13,7 @@ export class Repository {
         protected collectionName : string
     ) {}
 
-    private async getCollection() : Promise<Collection>{
+    async getCollection() : Promise<Collection>{
         if ( ! this.collection ) {
             const db : Db = await this.mongoContainer.getDb();
             this.collection = db.collection(this.collectionName);

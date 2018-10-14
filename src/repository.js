@@ -25,6 +25,10 @@ class Repository {
         let collection = await this.getCollection();
         collection.deleteOne(args);
     }
+    async deleteAll() {
+        let collection = await this.getCollection();
+        collection.remove({});
+    }
     async find(args = null) {
         let result = [];
         let collection = await this.getCollection();
